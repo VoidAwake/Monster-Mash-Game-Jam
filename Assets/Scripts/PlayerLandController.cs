@@ -34,12 +34,10 @@ public class PlayerLandController : MonoBehaviour
             
         }
         
-        var hit = Physics2D.Raycast(transform.position, -transform.up, rayLength);
-        if (hit)
-        {
+        var hit = Physics2D.Raycast(transform.position, -transform.up, rayLength, 1);
+        if (hit) 
             isGrounded = true;
-        }
-        
+
         Debug.DrawRay(transform.position, -transform.up * rayLength, Color.red);
     }
 }
