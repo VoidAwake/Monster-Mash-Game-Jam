@@ -15,6 +15,7 @@ public class OxygenMeter : MonoBehaviour
 
     public void UpdateOxygen(float value)
     {
+        //TODO: Lerp the change 
         slider.value = value;
     }
 
