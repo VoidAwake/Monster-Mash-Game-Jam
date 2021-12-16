@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine.Events;
 public class UnderwaterMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rigidbody;
+    [SerializeField] private Animator animator;
     [SerializeField] private float swimForceMultiplier;
     [SerializeField] private float turnForceMultiplier;
     [SerializeField] private AnimationCurve curve;
@@ -17,6 +19,11 @@ public class UnderwaterMovement : MonoBehaviour
     private void Start()
     {
         timeSinceLastWPress = 0;
+    }
+
+    private void OnEnable()
+    {
+        rigidbody.velocity = Vector2.zero;
     }
 
     void Update()

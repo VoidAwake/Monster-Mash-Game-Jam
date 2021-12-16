@@ -15,11 +15,18 @@ public class LandMovement : MonoBehaviour
     private void OnEnable()
     {
         rb.gravityScale = 1;
+
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        
+        // Reset player rotation
+        transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     private void OnDisable()
     {
         rb.gravityScale = 0;
+
+        rb.constraints = RigidbodyConstraints2D.None;
     }
 
     private void FixedUpdate()

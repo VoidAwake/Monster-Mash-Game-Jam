@@ -15,6 +15,8 @@ public class MovementController : MonoBehaviour
     [SerializeField] private SurfaceMovement surfaceMovement;
     [SerializeField] private MovementType startingMovementType;
 
+    public MovementType CurrentMovementType { get; private set; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,5 +48,7 @@ public class MovementController : MonoBehaviour
                 underwaterMovement.enabled = true;
                 break;
         }
+
+        CurrentMovementType = movementType;
     }
 }
