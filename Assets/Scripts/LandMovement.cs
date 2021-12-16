@@ -3,18 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerLandController : MonoBehaviour
+public class LandMovement : MonoBehaviour
 {
+    [SerializeField] private Rigidbody2D rb; 
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rayLength = 3;
     [SerializeField] private float jumpForce;
 
-    private Rigidbody2D rb;
     private bool isGrounded = true;
 
-    private void Start()
+    private void OnEnable()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 1;
+    }
+
+    private void OnDisable()
+    {
+        rb.gravityScale = 0;
     }
 
     private void FixedUpdate()
