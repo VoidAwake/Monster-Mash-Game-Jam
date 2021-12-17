@@ -56,6 +56,8 @@ public class MovementController : MonoBehaviour
 
     public void ChangeMovementType (MovementType movementType)
     {
+
+        Debug.Log(movementType);
         landMovement.enabled = false;
         surfaceMovement.enabled = false;
         underwaterMovement.enabled = false;
