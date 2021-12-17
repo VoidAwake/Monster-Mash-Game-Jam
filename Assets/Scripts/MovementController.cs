@@ -18,6 +18,7 @@ public class MovementController : MonoBehaviour
     [SerializeField] private Animator animator;
 
     private Rigidbody2D rb;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     public MovementType CurrentMovementType { get; private set; }
 
@@ -38,11 +39,13 @@ public class MovementController : MonoBehaviour
             case MovementType.Land:
                 // TODO: If we have jump gotta move this
                 animator.SetFloat("LandVel", rb.velocity.magnitude);
+                spriteRenderer.flipX = rb.velocity.x < 0;
                 break;
             case MovementType.Surface:
                 break;
             case MovementType.Underwater:
                 animator.SetFloat("SwimVel", rb.velocity.magnitude);
+                spriteRenderer.flipY = transform.rotation.z > 0;
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -74,6 +77,7 @@ public class MovementController : MonoBehaviour
             case MovementType.Underwater:
                 animator.SetBool("OnLand", false);
                 underwaterMovement.enabled = true;
+                spriteRenderer.flipX = false;
                 break;
         }
 
