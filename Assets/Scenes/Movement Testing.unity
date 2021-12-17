@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4741,20 +4741,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4308084703013060916, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
-      propertyPath: jumpForce
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 4308084703013060916, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
-      propertyPath: moveSpeed
-      value: 200
-      objectReference: {fileID: 0}
+    - target: {fileID: 4114828866177824154, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 978942612559604503, guid: fac77995284d918428a1600d1d38a964, type: 3}
     - target: {fileID: 5648143389251853632, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
       propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5648143389251853632, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
-      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5648143389251853636, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
@@ -4801,54 +4793,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5648143389251853637, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
-      propertyPath: m_WasSpriteAssigned
+    - target: {fileID: 5648143389251853638, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1646852996}
+    - target: {fileID: 5648143389251853753, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
+      propertyPath: m_Size.x
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 5648143389251853753, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
+      propertyPath: m_Size.y
+      value: 0.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 5648143389251853753, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6620751254897258002, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
-      propertyPath: rigidbody
+      propertyPath: visuals
       value: 
-      objectReference: {fileID: 2066930897}
-    - target: {fileID: 6620751254897258002, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
-      propertyPath: oxygenTank
-      value: 
-      objectReference: {fileID: 1590515532}
-    - target: {fileID: 6620751254897258002, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
-      propertyPath: swimmingOxygenCost
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6620751254897258002, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
-      propertyPath: turnForceMultiplier
-      value: 0.1
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1646852994}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
---- !u!1 &1590515531 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5648143389251853632, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
-  m_PrefabInstance: {fileID: 1590515530}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1590515532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1590515531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3f15679e45bcf24596d6ea355ffc382, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxOxygenLevel: 10
-  oxygenReductionSpeed: 1
-  oxygenRenewalSpeed: 1
-  oxygenLevelChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  playerDeath:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &1605353504
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4965,6 +4931,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   retryButton: {fileID: 120561782}
   overlay: {fileID: 1869689063}
+--- !u!4 &1646852994 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3346839155647519362, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
+  m_PrefabInstance: {fileID: 1590515530}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1646852996 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 625009185412744161, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
+  m_PrefabInstance: {fileID: 1590515530}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1862622186
 GameObject:
   m_ObjectHideFlags: 0
@@ -5291,11 +5267,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 446129887d3dc0e468c22f7873f1f1f0, type: 3}
---- !u!50 &2066930897 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 5648143389251853635, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
-  m_PrefabInstance: {fileID: 1590515530}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2066930899 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5648143389251853636, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
