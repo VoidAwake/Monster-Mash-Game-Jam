@@ -7,6 +7,7 @@ TagManager:
   - FallingRocks
   - Water Ceiling
   - Air
+  - PointyRock
   layers:
   - Default
   - TransparentFX
