@@ -74,7 +74,6 @@ public class UnderwaterMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("enter");
         if (other.CompareTag("Air"))
         {
             oxygenTank.IsReducing = false;
@@ -85,8 +84,6 @@ public class UnderwaterMovement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("exit");
-
         if (other.CompareTag("Air"))
         {
             oxygenTank.IsReducing = true;
