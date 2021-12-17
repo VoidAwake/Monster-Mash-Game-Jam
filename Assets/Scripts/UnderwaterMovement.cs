@@ -34,8 +34,9 @@ public class UnderwaterMovement : MonoBehaviour
         rigidbody.velocity = Vector2.zero;
 
         oxygenTank.IsReducing = true;
+        oxygenTank.IsRenewing = false;
 
-        visuals.rotation = Quaternion.Euler(0, 0, 90);
+        visuals.localRotation = Quaternion.Euler(0, 0, 90);
 
         transform.rotation = Quaternion.Euler(0, 0, -90);
     }
@@ -43,8 +44,9 @@ public class UnderwaterMovement : MonoBehaviour
     private void OnDisable()
     {
         oxygenTank.IsReducing = false;
+        oxygenTank.IsRenewing = true;
 
-        visuals.rotation = Quaternion.Euler(0, 0, 0);
+        visuals.localRotation = Quaternion.Euler(0, 0, 0);
     }
 
     void Update()
