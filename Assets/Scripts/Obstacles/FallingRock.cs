@@ -7,6 +7,8 @@ public class FallingRock : MonoBehaviour
 {
     [SerializeField] private float gravity = 1;
     [SerializeField] private float despawnTime = 3f;
+    [SerializeField] private Sprite fallingSprite;
+    private SpriteRenderer spriteRenderer;
     private float timer;
     private Rigidbody2D rb;
     private bool damaged;
@@ -36,6 +38,7 @@ public class FallingRock : MonoBehaviour
         rb.gravityScale = gravity;
         fallen = true;
         timer = despawnTime;
+        spriteRenderer.sprite = fallingSprite;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
