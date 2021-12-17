@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5673968963078865274}
   - component: {fileID: 5673968963078865277}
-  - component: {fileID: 5673968963078865276}
   - component: {fileID: 5673968963078865279}
+  - component: {fileID: 1123204236}
   - component: {fileID: 1123204235}
   - component: {fileID: 1123204233}
-  - component: {fileID: 1123204236}
+  - component: {fileID: 887457172}
   m_Layer: 7
   m_Name: Monster
   m_TagString: Untagged
@@ -87,21 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5673968963078865276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5673968963078865278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c91bacf9e7a99540b6f7aa09bdc3e09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  moveSpeed: 1
-  damagable: 0
 --- !u!50 &5673968963078865279
 Rigidbody2D:
   serializedVersion: 4
@@ -123,6 +108,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!70 &1123204236
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5673968963078865278}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.025598278, y: 0.09057585}
+  m_Size: {x: 0.6376996, y: 0.4092919}
+  m_Direction: 1
 --- !u!95 &1123204235
 Animator:
   serializedVersion: 3
@@ -158,7 +159,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5673968963078865276}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MonsterAI, Assembly-CSharp
         m_MethodName: OnDamagable
         m_Mode: 1
@@ -170,19 +171,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!70 &1123204236
-CapsuleCollider2D:
+--- !u!114 &887457172
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5673968963078865278}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.025598278, y: 0.09057585}
-  m_Size: {x: 0.6376996, y: 0.4092919}
-  m_Direction: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17956ca4851b6af46a256014db4b743a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  initialState: 0
+  chaseSpeed: 0.01
+  backOffSpeed: 0.01
+  backOffDistance: 20
+  damagable: 0
