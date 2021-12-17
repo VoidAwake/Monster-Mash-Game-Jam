@@ -439,7 +439,6 @@ MonoBehaviour:
   oxygenTank: {fileID: 1590515532}
   swimmingOxygenCost: 1
   visuals: {fileID: 3346839155647519362}
-  bubbles: {fileID: 4805979417963057832}
   audioSource: {fileID: 1214744036}
   swims:
   - {fileID: 8300000, guid: 038a17af05cc5ef4d9c3270da059572f, type: 3}
@@ -461,6 +460,8 @@ MonoBehaviour:
   maxOxygenLevel: 10
   oxygenReductionSpeed: 0.5
   oxygenRenewalSpeed: 1
+  bubbles: {fileID: 4805979417963057832}
+  monsterDamageAmount: 4
   oxygenLevelChanged:
     m_PersistentCalls:
       m_Calls: []
