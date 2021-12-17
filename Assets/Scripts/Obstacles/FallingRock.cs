@@ -17,6 +17,7 @@ public class FallingRock : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();    
     }
 
     private void Update()

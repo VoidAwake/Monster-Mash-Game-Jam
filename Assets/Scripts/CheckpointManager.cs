@@ -18,20 +18,31 @@ public class CheckpointManager : MonoBehaviour
         } else {
             _instance = this;
         }
+        
+        OnRespawn();
     }
+    
 
     [SerializeField] private GameObject player;
     
-    [SerializeField] private CheckpointObj currCheckpoint;
+    [SerializeField] private GameObject currCheckpoint;
 
+    [SerializeField] private string currCheckPref;
+    
     [ContextMenu("PlayerReset")]
     public void OnRespawn()
     {
-        if (currCheckpoint != null) player.transform.position = currCheckpoint.transform.position;
+        var checkpoint = PlayerPrefs.GetString(currCheckPref);
+        if (currCheckpoint != null || checkpoint != null)
+        {
+            currCheckpoint = GameObject.Find(checkpoint);
+            player.transform.position = currCheckpoint.transform.position;
+        }
     }
     
-    public void OnCheckpointReach(CheckpointObj checkpointObj)
+    public void OnCheckpointReach(GameObject checkpointObj)
     {
         currCheckpoint = checkpointObj;
+        PlayerPrefs.SetString(currCheckPref, currCheckpoint.name);
     }
 }
