@@ -19,6 +19,7 @@ public class UnderwaterMovement : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip[] swims;
 
+    [SerializeField] private float pointDmg = 1f;
     private float timeSinceLastWPress;
 
     private void Start()
@@ -87,6 +88,15 @@ public class UnderwaterMovement : MonoBehaviour
             oxygenTank.IsRenewing = true;
         }
 
+        
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("PointyRock"))
+        {
+            oxygenTank.ReduceOxygenLevel(pointDmg);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
