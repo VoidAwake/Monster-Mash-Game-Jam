@@ -8,6 +8,8 @@ public class OxygenTank : MonoBehaviour
     [SerializeField] public float maxOxygenLevel;
     [SerializeField] private float oxygenReductionSpeed;
     [SerializeField] private float oxygenRenewalSpeed;
+    [SerializeField] private ParticleSystem bubbles;
+    [SerializeField] private float monsterDamageAmount;
 
     public bool IsReducing { get; set; }
     public bool IsRenewing { get; set; }
@@ -46,6 +48,9 @@ public class OxygenTank : MonoBehaviour
         }
 
         oxygenLevelChanged.Invoke();
+
+        if (amount > 0.5)
+            bubbles.Play();
     }
 
     public void RenewOxygenLevel(float amount)
@@ -58,5 +63,13 @@ public class OxygenTank : MonoBehaviour
         }
 
         oxygenLevelChanged.Invoke();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Monster"))
+        {
+            ReduceOxygenLevel(monsterDamageAmount);
+        }
     }
 }

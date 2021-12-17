@@ -8,6 +8,7 @@ TagManager:
   - Water Ceiling
   - Air
   - PointyRock
+  - Monster
   layers:
   - Default
   - TransparentFX
