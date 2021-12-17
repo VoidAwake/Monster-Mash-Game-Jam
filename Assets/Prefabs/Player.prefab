@@ -361,6 +361,7 @@ MonoBehaviour:
   surfaceMovement: {fileID: 5648143389251853639}
   startingMovementType: 0
   animator: {fileID: 625009185412744161}
+  spriteRenderer: {fileID: 4114828866177824154}
 --- !u!114 &4308084703013060916
 MonoBehaviour:
   m_ObjectHideFlags: 0
