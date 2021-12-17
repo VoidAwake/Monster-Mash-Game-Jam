@@ -12,7 +12,7 @@ public class FallingRock : MonoBehaviour
     private float timer;
     private Rigidbody2D rb;
     private bool damaged;
-    private bool fallen;
+    public bool fallen;
 
     private void Awake()
     {
