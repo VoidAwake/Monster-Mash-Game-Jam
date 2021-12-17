@@ -77,6 +77,7 @@ public class MovementController : MonoBehaviour
             case MovementType.Underwater:
                 animator.SetBool("OnLand", false);
                 underwaterMovement.enabled = true;
+                spriteRenderer.flipX = false;
                 break;
         }
 
