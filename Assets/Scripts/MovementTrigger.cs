@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using static MovementController;
 
 public class MovementTrigger : MonoBehaviour
 {
-    [SerializeField] private MovementType movementType;
+    [SerializeField] private Vector2 swimPosition;
+    [SerializeField] private Vector2 walkPosition;
 
     private MovementController movementController;
 
@@ -18,8 +17,22 @@ public class MovementTrigger : MonoBehaviour
             Debug.LogWarning("Could not find MovementController");
         }
     }
-    private void OnTriggerEnter2D()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        movementController.ChangeMovementType(movementType);
+        switch (movementController.CurrentMovementType)
+        {
+            case MovementType.Land:
+                movementController.ChangeMovementType(MovementType.Underwater);
+
+                other.transform.position = transform.position + Vector3.Scale(swimPosition, transform.localScale);
+                
+                break;
+            case MovementType.Underwater:
+                movementController.ChangeMovementType(MovementType.Land);
+
+                other.transform.position = transform.position + Vector3.Scale(walkPosition, transform.localScale);
+
+                break;
+        }
     }
 }

@@ -5,13 +5,17 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     public enum MovementType {
+        Land,
         Surface,
         Underwater
     }
 
+    [SerializeField] private LandMovement landMovement;
     [SerializeField] private UnderwaterMovement underwaterMovement;
     [SerializeField] private SurfaceMovement surfaceMovement;
     [SerializeField] private MovementType startingMovementType;
+
+    public MovementType CurrentMovementType { get; private set; }
 
     // Start is called before the first frame update
     void Start()
@@ -28,11 +32,15 @@ public class MovementController : MonoBehaviour
 
     public void ChangeMovementType (MovementType movementType)
     {
+        landMovement.enabled = false;
         surfaceMovement.enabled = false;
         underwaterMovement.enabled = false;
 
         switch (movementType)
         {
+            case MovementType.Land:
+                landMovement.enabled = true;
+                break;
             case MovementType.Surface:
                 surfaceMovement.enabled = true;
                 break;
@@ -40,5 +48,7 @@ public class MovementController : MonoBehaviour
                 underwaterMovement.enabled = true;
                 break;
         }
+
+        CurrentMovementType = movementType;
     }
 }
