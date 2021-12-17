@@ -12,6 +12,8 @@ public class UnderwaterMovement : MonoBehaviour
     [SerializeField] private float turnForceMultiplier;
     [SerializeField] private AnimationCurve curve;
     [SerializeField] private float holdWPeriod;
+    [SerializeField] private OxygenTank oxygenTank;
+    [SerializeField] private float swimmingOxygenCost;
 
 
     private float timeSinceLastWPress;
@@ -24,6 +26,13 @@ public class UnderwaterMovement : MonoBehaviour
     private void OnEnable()
     {
         rigidbody.velocity = Vector2.zero;
+
+        oxygenTank.IsReducing = true;
+    }
+
+    private void OnDisable()
+    {
+        oxygenTank.IsReducing = false;
     }
 
     void Update()
@@ -59,5 +68,29 @@ public class UnderwaterMovement : MonoBehaviour
         //Debug.Log(curve.Evaluate(timeSinceLastWPress) * swimForceMultiplier);
 
         timeSinceLastWPress = 0;
+
+        oxygenTank.ReduceOxygenLevel(swimmingOxygenCost);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("enter");
+        if (other.CompareTag("Air"))
+        {
+            oxygenTank.IsReducing = false;
+            oxygenTank.IsRenewing = true;
+        }
+
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        Debug.Log("exit");
+
+        if (other.CompareTag("Air"))
+        {
+            oxygenTank.IsReducing = true;
+            oxygenTank.IsRenewing = false;
+        }
     }
 }
