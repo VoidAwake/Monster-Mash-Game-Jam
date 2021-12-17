@@ -11,9 +11,16 @@ public class MonsterController : MonoBehaviour
     [SerializeField] private float chaseSpeed;
     [SerializeField] private float backOffSpeed;
     [SerializeField] private float backOffDistance;
+    [SerializeField] private AnimationCurve curve;
     
     [SerializeField] private bool damagable;
     private SpriteRenderer spriteRenderer;
+
+    [SerializeField] private AudioSource[] audioSources;
+
+    [SerializeField] private float musicAudioDist = 15f;
+    [SerializeField] private float closeAudioDist = 5f;
+    
     public enum MonsterState
     {
         Idle,
@@ -37,16 +44,33 @@ public class MonsterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var direction = (player.transform.position - transform.position).normalized;
+        var distance = player.transform.position - transform.position;
+        var direction = distance.normalized;
         float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         
         switch (currentState)
         {
             case MonsterState.Chase:
                 transform.position = Vector3.MoveTowards(transform.position, player.position, chaseSpeed);
-                //var direction = (player.transform.position - transform.position).normalized;
-                //float rot_z = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                 transform.rotation = Quaternion.Euler(0f, 0f, rotZ);
+
+                if (distance.magnitude <= musicAudioDist)
+                {
+                    if (!audioSources[0].isPlaying)
+                    {
+                        audioSources[0].Play();
+                    }
+
+                    audioSources[0].volume = curve.Evaluate(distance.magnitude / 15);
+
+                    if (distance.magnitude <= closeAudioDist)
+                    {
+                        if (!audioSources[1].isPlaying)
+                        {
+                            audioSources[1].Play();
+                        }
+                    }
+                }
 
                 break;
             case MonsterState.BackOff:
@@ -85,5 +109,10 @@ public class MonsterController : MonoBehaviour
                 // Kill monster
             }
         }
+    }
+
+    private void OnValidate()
+    {
+        audioSources = GetComponents<AudioSource>();
     }
 }

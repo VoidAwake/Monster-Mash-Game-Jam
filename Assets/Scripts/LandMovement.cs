@@ -10,6 +10,8 @@ public class LandMovement : MonoBehaviour
     [SerializeField] private float rayLength = 3;
     [SerializeField] private float jumpForce;
 
+    [SerializeField] private AudioSource audioSource;
+
     private bool isGrounded = true;
 
     private void OnEnable()
@@ -33,6 +35,17 @@ public class LandMovement : MonoBehaviour
     {
         Vector2 force = new Vector2(Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime, rb.velocity.y);
         rb.velocity = force;
+        if (Mathf.Abs(force.x) > 0.1f)
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+        }
+        else
+        {
+            audioSource.Stop();
+        }
 
         if (Input.GetAxis("Vertical") >0 || Input.GetAxis("Jump") > 0)
         {

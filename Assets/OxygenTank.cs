@@ -15,6 +15,7 @@ public class OxygenTank : MonoBehaviour
     public float OxygenLevel { get; private set; }
 
     public UnityEvent oxygenLevelChanged;
+    public UnityEvent playerDeath;
 
     void Awake()
     {
@@ -28,6 +29,11 @@ public class OxygenTank : MonoBehaviour
 
         if (IsRenewing)
             RenewOxygenLevel(oxygenRenewalSpeed * Time.deltaTime);
+
+        if (OxygenLevel <= 0)
+        {
+            playerDeath.Invoke();
+        }
     }
 
     public void ReduceOxygenLevel (float amount)

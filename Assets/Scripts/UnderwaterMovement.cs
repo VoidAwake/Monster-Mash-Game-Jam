@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 public class UnderwaterMovement : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class UnderwaterMovement : MonoBehaviour
     [SerializeField] private OxygenTank oxygenTank;
     [SerializeField] private float swimmingOxygenCost;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip[] swims;
 
     private float timeSinceLastWPress;
 
@@ -63,9 +66,13 @@ public class UnderwaterMovement : MonoBehaviour
 
     private void Swim()
     {
-        rigidbody.AddForce(transform.up * curve.Evaluate(timeSinceLastWPress) * swimForceMultiplier);
-
-        //Debug.Log(curve.Evaluate(timeSinceLastWPress) * swimForceMultiplier);
+        var power = transform.up * curve.Evaluate(timeSinceLastWPress) * swimForceMultiplier;
+        rigidbody.AddForce(power);
+        
+        audioSource.PlayOneShot(swims[Random.Range(0, swims.Length-1)]);
+        audioSource.volume = Mathf.Clamp(curve.Evaluate(timeSinceLastWPress), 0.2f, 1f);
+    
+        //Debug.Log(curve.Evaluate(timeSinceLastWPress) * swimForceMultiplier); 
 
         timeSinceLastWPress = 0;
 
@@ -74,7 +81,6 @@ public class UnderwaterMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("enter");
         if (other.CompareTag("Air"))
         {
             oxygenTank.IsReducing = false;
@@ -85,8 +91,6 @@ public class UnderwaterMovement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("exit");
-
         if (other.CompareTag("Air"))
         {
             oxygenTank.IsReducing = true;

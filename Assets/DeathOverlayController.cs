@@ -1,27 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DeathOverlayController : MonoBehaviour
 {
-    
+    [SerializeField] private Button retryButton;
+    [SerializeField] private GameObject overlay;
 
-    // Start is called before the first frame update
+    private OxygenTank oxygenTank;
+
     void Start()
     {
-        // Liten to event
+        oxygenTank = FindObjectOfType<OxygenTank>();
 
-        //OnRetryButtonClicked
+        oxygenTank.playerDeath.AddListener(OnPlayerDeath);
+
+        retryButton.onClick.AddListener(OnRetryButtonClicked);
     }
 
     private void OnPlayerDeath ()
     {
-        // TODO Show the overlay
+        overlay.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnRetryButtonClicked()
     {
-        
+        // TODO: Reset scene
+        SceneManager.LoadScene(0);
     }
 }
