@@ -722,6 +722,12 @@ MonoBehaviour:
   chaseSpeed: 0.01
   backOffSpeed: 0.01
   backOffDistance: 20
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   damagable: 0
   audioSources:
   - {fileID: 455192496}
@@ -5020,22 +5026,6 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1646852996}
-    - target: {fileID: 5648143389251853753, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
-      propertyPath: m_Size.x
-      value: 0.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 5648143389251853753, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
-      propertyPath: m_Size.y
-      value: 0.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 5648143389251853753, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6620751254897258002, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
-      propertyPath: visuals
-      value: 
-      objectReference: {fileID: 1646852994}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
 --- !u!1 &1599081059
@@ -5229,11 +5219,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   retryButton: {fileID: 120561782}
   overlay: {fileID: 1869689063}
---- !u!4 &1646852994 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3346839155647519362, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}
-  m_PrefabInstance: {fileID: 1590515530}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1646852996 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 625009185412744161, guid: d2303bab67a39c141a93975b1cbfa782, type: 3}

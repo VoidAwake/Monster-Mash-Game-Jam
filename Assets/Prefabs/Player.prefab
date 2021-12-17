@@ -272,7 +272,6 @@ GameObject:
   - component: {fileID: 6620751254897258002}
   - component: {fileID: 1590515532}
   - component: {fileID: 215681471}
-  - component: {fileID: 215681470}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -438,10 +437,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   holdWPeriod: 1
-  oxygenTank: {fileID: 215681470}
+  oxygenTank: {fileID: 1590515532}
   swimmingOxygenCost: 1
   visuals: {fileID: 3346839155647519362}
-  bubbles: {fileID: 4805979417963057832}
   audioSource: {fileID: 1214744036}
   swims:
   - {fileID: 8300000, guid: 038a17af05cc5ef4d9c3270da059572f, type: 3}
@@ -463,6 +461,8 @@ MonoBehaviour:
   maxOxygenLevel: 10
   oxygenReductionSpeed: 0.5
   oxygenRenewalSpeed: 1
+  bubbles: {fileID: 4805979417963057832}
+  monsterDamageAmount: 4
   oxygenLevelChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -565,27 +565,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &215681470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5648143389251853632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3f15679e45bcf24596d6ea355ffc382, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxOxygenLevel: 0
-  oxygenReductionSpeed: 0
-  oxygenRenewalSpeed: 0
-  oxygenLevelChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  playerDeath:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &7815760393258542876
 GameObject:
   m_ObjectHideFlags: 0
