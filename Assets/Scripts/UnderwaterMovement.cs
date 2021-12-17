@@ -71,8 +71,8 @@ public class UnderwaterMovement : MonoBehaviour
         
         audioSource.PlayOneShot(swims[Random.Range(0, swims.Length-1)]);
         audioSource.volume = Mathf.Clamp(curve.Evaluate(timeSinceLastWPress), 0.2f, 1f);
-
-        //Debug.Log(curve.Evaluate(timeSinceLastWPress) * swimForceMultiplier);
+    
+        //Debug.Log(curve.Evaluate(timeSinceLastWPress) * swimForceMultiplier); 
 
         timeSinceLastWPress = 0;
 
