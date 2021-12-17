@@ -36,6 +36,7 @@ public class FallingRock : MonoBehaviour
     public void Fall()
     {
         rb.gravityScale = gravity;
+        rb.constraints = RigidbodyConstraints2D.None;
         fallen = true;
         timer = despawnTime;
         spriteRenderer.sprite = fallingSprite;
