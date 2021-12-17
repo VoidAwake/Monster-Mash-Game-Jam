@@ -47,7 +47,7 @@ public class LandMovement : MonoBehaviour
         }
         
         var hit = Physics2D.Raycast(transform.position, -transform.up, rayLength, 1);
-        if (hit) 
+        if (hit && rb.velocity.y >= 0) 
             isGrounded = true;
 
         Debug.DrawRay(transform.position, -transform.up * rayLength, Color.red);

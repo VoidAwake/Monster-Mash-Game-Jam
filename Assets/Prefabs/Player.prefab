@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4308084703013060916}
   - component: {fileID: 5648143389251853639}
   - component: {fileID: 6620751254897258002}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,9 +164,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5648143389251853635}
-  moveSpeed: 0
+  moveSpeed: 200
   rayLength: 3
-  jumpForce: 0
+  jumpForce: 12
 --- !u!114 &5648143389251853639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,6 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 0}
+  animator: {fileID: 0}
   swimForceMultiplier: 200
   turnForceMultiplier: 1
   curve:
