@@ -15,6 +15,7 @@ public class UnderwaterMovement : MonoBehaviour
     [SerializeField] private OxygenTank oxygenTank;
     [SerializeField] private float swimmingOxygenCost;
     [SerializeField] private Transform visuals;
+    [SerializeField] private ParticleSystem bubbles;
 
 
     private float timeSinceLastWPress;
@@ -77,6 +78,8 @@ public class UnderwaterMovement : MonoBehaviour
         timeSinceLastWPress = 0;
 
         oxygenTank.ReduceOxygenLevel(swimmingOxygenCost);
+
+        bubbles.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
