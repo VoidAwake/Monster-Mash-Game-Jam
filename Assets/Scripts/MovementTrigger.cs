@@ -19,6 +19,9 @@ public class MovementTrigger : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (!other.CompareTag("Player"))
+            return;
+
         switch (movementController.CurrentMovementType)
         {
             case MovementType.Land:

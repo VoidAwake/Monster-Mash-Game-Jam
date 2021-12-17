@@ -15,6 +15,7 @@ public class UnderwaterMovement : MonoBehaviour
     [SerializeField] private float holdWPeriod;
     [SerializeField] private OxygenTank oxygenTank;
     [SerializeField] private float swimmingOxygenCost;
+    [SerializeField] private Transform visuals;
 
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip[] swims;
@@ -32,11 +33,17 @@ public class UnderwaterMovement : MonoBehaviour
         rigidbody.velocity = Vector2.zero;
 
         oxygenTank.IsReducing = true;
+
+        visuals.rotation = Quaternion.Euler(0, 0, 90);
+
+        transform.rotation = Quaternion.Euler(0, 0, -90);
     }
 
     private void OnDisable()
     {
         oxygenTank.IsReducing = false;
+
+        visuals.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     void Update()
