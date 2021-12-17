@@ -25,7 +25,7 @@ public class CheckpointManager : MonoBehaviour
     [SerializeField] private CheckpointObj currCheckpoint;
 
     [ContextMenu("PlayerReset")]
-    public void OnDeath()
+    public void OnRespawn()
     {
         if (currCheckpoint != null) player.transform.position = currCheckpoint.transform.position;
     }
