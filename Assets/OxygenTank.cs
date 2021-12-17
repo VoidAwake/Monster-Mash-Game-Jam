@@ -40,12 +40,22 @@ public class OxygenTank : MonoBehaviour
     {
         OxygenLevel -= amount;
 
+        if (OxygenLevel < 0)
+        {
+            OxygenLevel = 0;
+        }
+
         oxygenLevelChanged.Invoke();
     }
 
     public void RenewOxygenLevel(float amount)
     {
         OxygenLevel += amount;
+
+        if (OxygenLevel > maxOxygenLevel)
+        {
+            OxygenLevel = maxOxygenLevel;
+        }
 
         oxygenLevelChanged.Invoke();
     }

@@ -15,9 +15,9 @@ public class MovementController : MonoBehaviour
     [SerializeField] private UnderwaterMovement underwaterMovement;
     [SerializeField] private SurfaceMovement surfaceMovement;
     [SerializeField] private MovementType startingMovementType;
+    [SerializeField] private Animator animator;
 
     private Rigidbody2D rb;
-    private Animator animator;
 
     public MovementType CurrentMovementType { get; private set; }
 
@@ -25,7 +25,6 @@ public class MovementController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
         
         ChangeMovementType(startingMovementType);
 
@@ -57,6 +56,8 @@ public class MovementController : MonoBehaviour
 
     public void ChangeMovementType (MovementType movementType)
     {
+
+        Debug.Log(movementType);
         landMovement.enabled = false;
         surfaceMovement.enabled = false;
         underwaterMovement.enabled = false;
